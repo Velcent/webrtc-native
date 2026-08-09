@@ -77,6 +77,20 @@ repos:
             tests/data/.*\.bin
           )$
 
+      - id: copyright-headers
+        name: copyright-headers
+        language: python
+        entry: python misc/scripts/copyright_headers.py
+        files: \.(c|h|cpp|hpp|cc|hh|cxx|hxx|m|mm|inc|java)$
+        exclude: |
+          (?x)^(
+            core/math/bvh_.*\.inc|
+            platform/(?!android|ios|linuxbsd|macos|web|windows)\w+/.*|
+            platform/android/java/lib/src/main/java/org/godotengine/godot/gl/GLSurfaceView\.java|
+            platform/android/java/lib/src/main/java/org/godotengine/godot/gl/EGLLogWrapper\.java|
+            platform/android/java/lib/src/main/java/org/godotengine/godot/utils/ProcessPhoenix\.java
+          )$
+
 #
 # End of upstream Godot pre-commit hooks.
 #
